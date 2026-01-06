@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINISTER MARK</title>
+    <meta name="description" content="Offline Holy Bible Web App">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <button id="menu-btn" aria-label="Menu">☰</button>
+            <div>
+                <h1>MINISTER MARK</h1>
+                <small>Offline Holy Bible</small>
+            </div>
+        </div>
+        <div class="header-right">
+            <button id="search-toggle" aria-label="Search">🔍</button>
+            <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Loading State -->
+        <div id="loader" class="loader">Loading Scripture...</div>
+        
+        <!-- Navigation View (Books/Chapters) -->
+        <div id="nav-view" class="view hidden">
+            <div class="tab-header">
+                <button id="tab-ot" class="active">Old Testament</button>
+                <button id="tab-nt">New Testament</button>
+            </div>
+            <div id="book-list" class="grid-list"></div>
+        </div>
+
+        <!-- Chapter Select View -->
+        <div id="chapter-view" class="view hidden">
+            <button class="back-btn">← Back to Books</button>
+            <h2 id="selected-book-title">Genesis</h2>
+            <div id="chapter-list" class="grid-list square-grid"></div>
+        </div>
+
+        <!-- Reader View -->
+        <div id="reader-view" class="view hidden">
+            <div class="reader-controls">
+                <button class="back-to-chapters">← Chapters</button>
+                <div class="font-controls">
+                    <button id="font-decrease">A-</button>
+                    <button id="font-increase">A+</button>
+                </div>
+            </div>
+            <h2 id="reader-title">Genesis 1</h2>
+            <div id="scripture-text" class="scripture-content"></div>
+            
+            <div class="nav-buttons">
+                <button id="prev-chap">Previous</button>
+                <button id="next-chap">Next</button>
+            </div>
+        </div>
+
+        <!-- Search View -->
+        <div id="search-view" class="view hidden">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search verses...">
+                <button id="close-search">✕</button>
+            </div>
+            <div id="search-results"></div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="hidden"></div>
+
+    <!-- PWA Install Button -->
+    <button id="install-btn" class="hidden">Install App</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
